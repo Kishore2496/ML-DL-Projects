@@ -35,7 +35,7 @@
     },
     {"tag": "menu",
      "patterns": ["What is your Menu?", "What are the main course options?", "Can you tell me the most delicious dish from the menu?", "What is the today's special?"],
-     "responses": ["You can visit www.mymenu.com for menu options", "You can check out the food menu at www.mymenu.com", "You can check various delicacies given in the food menu at www.mymenu.com"],
+     "responses": ["You can visi www.mymenu.com for menu options", "You can check out the food menu at www.mymenu.com", "You can check various delicacies given in the food menu at www.mymenu.com"],
      "context_filter": "food"
     }
 ]
