@@ -25,11 +25,18 @@ weights = [[0.2, 0.8, -0.5, 1],
 
 biases = [2, 3, 0.5]
 
-layer_output = []
-for weight_list, single_bias in zip(weights, biases):
-  current_output = 0
-  for indiv_weights, n_input in zip(weight_list, inputs):
-    current_output += indiv_weights * n_input
-  current_output += single_bias
-  layer_output.append(current_output)
+
+# layer_output = []
+# for weight_list, single_bias in zip(weights, biases):
+#   current_output = 0
+#   for indiv_weights, n_input in zip(weight_list, inputs):
+#     current_output += indiv_weights * n_input
+#   current_output += single_bias
+#   layer_output.append(current_output)
+
+#Use Numpy and do the same as the above commented piece of code
+layer_output = np.dot(weights, inputs) + biases #dot product of weights and inputs
+print(layer_output)
+
+
 
