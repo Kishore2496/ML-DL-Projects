@@ -15,28 +15,27 @@ print("Python: ", sys.version)
 print("Numpy: ", np.__version__)
 print("Matplotlib: ", matplotlib.__version__)
 
-#Coding a simple neuron that has inputs, weights, bias
-inputs = [1.0, 2.0, 3.0, 2.5]
+#Coding three neuron layers with different input layers
+#Matrix of size 3 * 4
+X = [[1, 2, 3, 2.5],
+     [2, 5, -1, 2],
+     [-1.5, 2.7, 3.3, -0.8]]
 
-#Modelling 3 neurons with 3 weights and bias
-weights = [[0.2, 0.8, -0.5, 1],
-           [0.5, -0.91, 0.26, -0.5],
-           [-0.26, -0.27, 0.17, 0.87]]
+np.random.seed(0)
 
-biases = [2, 3, 0.5]
+#Modeling Dense layers as a class
+class Layer_Dense: 
+  def __init__(self, n_inputs, n_neurons):
+    self.weights = 0.1 * np.random.randn(n_inputs, n_neurons)       
+    self.biases =  np.zeros((1, n_neurons))
+  def forward(self, inputs):
+    self.outputs = np.dot(inputs, self.weights) + self.biases
 
-
-# layer_output = []
-# for weight_list, single_bias in zip(weights, biases):
-#   current_output = 0
-#   for indiv_weights, n_input in zip(weight_list, inputs):
-#     current_output += indiv_weights * n_input
-#   current_output += single_bias
-#   layer_output.append(current_output)
-
-#Use Numpy and do the same as the above commented piece of code
-layer_output = np.dot(weights, inputs) + biases #dot product of weights and inputs
-print(layer_output)
+layer1 = Layer_Dense(4,5)
+layer1.forward(X)
+layer2 = Layer_Dense(5,2)
+layer2.forward(layer1.outputs)
+print(layer2.outputs)
 
 
 
